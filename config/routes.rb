@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
+  root "todos#index"
   get "/todos", to: "todos#index"
 end
