@@ -24,7 +24,6 @@ Things you may want to cover:
 * ...
 
 # Stuffs that I learned
-## https://railsguides.jp/getting_started.html
 - bundle install --gemfile 
   - to install dependencies
 - ruby bin/rails server or bin/rails server 
@@ -59,4 +58,10 @@ Things you may want to cover:
   - Add "Strong type" to params, to filter params and not allow user to add field in params
 - Validation
   - Add to ruby file under models/ dir
-- 
+
+# Reference
+- https://railsguides.jp/getting_started.html
+- https://semantic-ui.com/elements/button.html
+- https://qiita.com/you8/items/4a5ec712e8149e8be37f
+- https://qiita.com/d0ne1s/items/7c4d2be3f53e34a9dec7
+- https://qiita.com/d0ne1s/items/9b98c22920848bdafac1
