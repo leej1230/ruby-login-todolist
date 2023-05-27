@@ -24,6 +24,7 @@ Things you may want to cover:
 * ...
 
 # Stuffs that I learned
+## https://railsguides.jp/getting_started.html
 - bundle install --gemfile 
   - to install dependencies
 - ruby bin/rails server or bin/rails server 
@@ -48,3 +49,14 @@ Things you may want to cover:
 - erb = Embedded ruby
   - <% %> => Evaluate the ruby written inside
   - <%= %> => Evaluate the ruby written inside AND return output
+- Parameter Route
+  - "/todo/:id" -> params[:id] to access in controller and store in instance variable
+- There is some system called resources for routing method, which helps you to combine all CRUD method to one
+  - Seems very powerful and handy
+- Form builder to write form with minimum codes
+  - Helper method: form_with
+- String Parameter
+  - Add "Strong type" to params, to filter params and not allow user to add field in params
+- Validation
+  - Add to ruby file under models/ dir
+- 
