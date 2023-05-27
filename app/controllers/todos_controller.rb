@@ -2,18 +2,21 @@ class TodosController < ApplicationController
   def index
     # Instance variable
     @todos = Todo.all
-  end
-
-  def new
     @todo = Todo.new
   end
 
   def create
-    @todo = Todo.new(title: "...")
+    @todo = Todo.new(todo_params)
+    @todo.save
 
-    if @todo.save
-      redirect_to index
-    end
+    redirect_to root_path
+  end
+
+  def destroy
+    @todo = Todo.find(params[:id])
+    @todo.destroy
+
+    redirect_to root_path
   end
 
   private
