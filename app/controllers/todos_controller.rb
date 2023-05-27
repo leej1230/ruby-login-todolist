@@ -3,19 +3,25 @@ class TodosController < ApplicationController
   
   def index
     # Instance variable
-    @todos = Todo.all
-    @todo = Todo.new
+    if logged_in?
+      @todos = current_user.todos.all
+      @todo = current_user.todos.new
+    else
+      @todos = []
+      @todo = Todo.new
+    end
   end
 
   def create
-    @todo = Todo.new(todo_params)
+    # @todo = Todo.new(todo_params)
+    @todo = current_user.todos.new(todo_params)
     @todo.save
 
     redirect_to root_path
   end
 
   def destroy
-    @todo = Todo.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
     @todo.destroy
 
     redirect_to root_path
