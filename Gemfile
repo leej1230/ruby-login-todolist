@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 # Implement Semantic-ui
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 
+# For hashing password
+gem 'bcrypt',  '3.1.12'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
