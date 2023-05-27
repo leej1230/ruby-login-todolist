@@ -1,4 +1,5 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController::Base
+  protect_from_forgery with: :null_session
   def new
     @user = User.new
   end
