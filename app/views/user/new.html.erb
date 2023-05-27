@@ -1,2 +1,31 @@
-<h1>User#new</h1>
-<p>Find me in app/views/user/new.html.erb</p>
+<h1 class="ui center aligned header" style="margin: 20px auto 0;">Create a new user</h1>
+
+<%= form_for(@user, html: { class: 'ui form' }) do |form| %>
+  <div class="ui container">
+    <div class="field">
+      <%= form.label :name %>
+      <div class="ui input">
+        <%= form.text_field :name %>
+      </div>
+    </div>
+    <div class="field">
+      <%= form.label :email %>
+      <div class="ui input">
+        <%= form.email_field :email %>
+      </div>
+    </div>
+    <div class="field">
+      <%= form.label :password %>
+      <div class="ui input">
+        <%= form.password_field :password %>
+      </div>
+    </div>
+    <div class="field">
+      <%= form.label :password_confirmation %>
+      <div class="ui input">
+        <%= form.password_field :password_confirmation %>
+      </div>
+    </div>
+    <%= form.submit "Create User", class: 'ui primary button' %>
+  </div>
+<% end %>
