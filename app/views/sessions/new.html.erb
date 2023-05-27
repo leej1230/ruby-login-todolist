@@ -1,0 +1,19 @@
+<h1 class="ui center aligned header" style="margin: 20px auto 0;">Login</h1>
+
+<%= form_for(:session, url: login_path, html: { class: 'ui form' }) do |form| %>
+    <div class="ui container">
+        <div class="field">
+            <%= form.label :email %>
+            <div class="ui input">
+                <%= form.email_field :email %>
+            </div>
+        </div>
+        <div class="field">
+            <%= form.label :password %>
+            <div class="ui input">
+                <%= form.password_field :password %>
+            </div>
+        </div>
+        <%= form.submit "Log in", class: 'ui primary button' %>
+    </div>
+<% end %>

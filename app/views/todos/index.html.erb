@@ -1,41 +1,48 @@
 <h1 class="ui center aligned header" style="margin: 20px auto 0;">Todos!</h1>
 
-<h2 class="ui center aligned header">Add New Todo</h2>
+<% if logged_in? %>
+    <h2 class="ui center aligned header">Add New Todo</h2>
 
-<div class="ui center aligned container" style="margin: 0 auto;">
-    <%= form_with model: @todo, class: 'ui form' do |form| %>
-        <div class="ui action input fluid center aligned">
-            <%= form.text_field :title, style: 'text-align: center;' %>
-            <% @todo.errors.full_messages_for(:title).each do |message| %>
-                <div><%= message %></div>
-            <% end %>
-            <div class="ui button" style="padding: 0; margin: 0;">
-                <%= form.submit "Add Todo!", class: 'ui button' %>
+    <div class="ui center aligned container" style="margin: 0 auto;">
+        <%= form_with model: @todo, class: 'ui form' do |form| %>
+            <div class="ui action input fluid center aligned">
+                <%= form.text_field :title, style: 'text-align: center;' %>
+                <% @todo.errors.full_messages_for(:title).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+                <div class="ui button" style="padding: 0; margin: 0;">
+                    <%= form.submit "Add Todo!", class: 'ui button' %>
+                </div>
             </div>
-        </div>
-    <% end %>
-</div>
+        <% end %>
+    </div>
 
 
-<div class="ui container" style="margin: 20px auto 0;">
-    <div class="ui middle aligned animated divided list">
-        <% @todos.reverse_each do |todo| %>
-        <div class="item" style="margin: 20px auto 0;">
-            <div class="content">
-                <div class="header">
-                    <div class="ui grid middle aligned">
-                        <div class="twelve wide column">
-                            <span class="animated-text" style="font-size: 20px;"><%= todo.title %></span>
-                        </div>
-                        <div class="four wide column">
-                            <%= link_to "Completed Task", todo_path(todo.id), data: {
-                                turbo_method: :delete,
-                            }, class: 'ui primary button right floated' %>
+    <div class="ui container" style="margin: 20px auto 0;">
+        <div class="ui middle aligned animated divided list">
+            <% @todos.reverse_each do |todo| %>
+            <div class="item" style="margin: 20px auto 0;">
+                <div class="content">
+                    <div class="header">
+                        <div class="ui grid middle aligned">
+                            <div class="twelve wide column">
+                                <span class="animated-text" style="font-size: 20px;"><%= todo.title %></span>
+                            </div>
+                            <div class="four wide column">
+                                <%= link_to "Completed Task", todo_path(todo.id), data: {
+                                    turbo_method: :delete,
+                                }, class: 'ui primary button right floated' %>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <% end %>
         </div>
-        <% end %>
+    <%= button_to "Logout", logout_path, class: 'ui primary button', method: :delete %>
     </div>
-</div>
+<% else %>
+    <div class="ui container center aligned" style="margin-top: 20px;">
+        <%= link_to "Login", login_path, class: 'ui primary button' %>
+    </div>
+<% end %>

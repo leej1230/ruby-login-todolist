@@ -1,4 +1,6 @@
 class TodosController < ApplicationController
+  before_action :logged_in_user, only:[:edit, :update, :destroy]
+  
   def index
     # Instance variable
     @todos = Todo.all
